@@ -1,15 +1,31 @@
 # Voting advice application comparison
 
-Draw a graph comparing the voting advice applications of different countries.
+A chart comparing the voting advice applications for the **2019 European
+Parliament election** of:
 
-Currently data for the 2019 election to the EU parliament for:
+&#x1f1e8;&#x1f1ff; Czech Republic ([Volební kalkulačka, Volby do Evropského
+parlamentu 2019](https://eu2019.programydovoleb.cz/volebni-kalkulacka/) by
+[Programy do voleb](https://www.programydovoleb.cz/))\
+&#x1f1e9;&#x1f1ea; Germany ([Wahl-O-Mat zur Europawahl
+2019](https://www.wahl-o-mat.de/europawahl2019/) by [Bundeszentrale für
+politische Bildung](https://www.bpb.de/))
 
-- Czech Republic
-- Germany
+The **English translations and similarity classifications** (connections between the
+questions) are **NOT OFFICIAL**.
 
-## Installation
+Legend:
 
-### Mac
+- **gray background** = unique question
+- **solid line** connection between questions = very similar questions
+- **dashed line** connection between questions = related questions
+
+![](./dist/graph.svg)
+
+## Drawing the chart
+
+### Installation
+
+#### Mac
 
 ``` shell
 $ brew install python graphviz
@@ -17,14 +33,14 @@ $ pip install pipenv
 $ make setup
 ```
 
-### Arch Linux
+#### Arch Linux
 
 ``` shell
 # pacman -S pipenv graphviz
 $ make setup
 ```
 
-### Other systems
+#### Other systems
 
 Install these dependencies manually:
 
@@ -38,32 +54,37 @@ Then run:
 $ make setup
 ```
 
-## Usage
+### Usage
 
-### Generating the graph as PDF
+#### Rendering the chart as SVG
 
 ```
 $ make
 ```
 
-The graph PDF will be created at `dist/graph.pdf`.
+The chart SVG will be created at `dist/graph.svg`.
 
-## Development
+### Development
 
-### Installation
+#### Installation
 
 ``` shell
 make setup-dev
 ```
 
-### Linting
+#### Linting
 
 ``` shell
 make lint
 ```
 
-### Help
+#### Help
 
 ``` shell
 make help
 ```
+
+### Contributing
+
+**Feel free to remix this project** under the terms of the [Apache License,
+Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
