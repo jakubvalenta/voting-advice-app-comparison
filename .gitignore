@@ -1,3 +1,2 @@
-*.gv
-*.ps
 __pycache__
+dist
