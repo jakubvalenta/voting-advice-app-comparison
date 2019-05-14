@@ -42,7 +42,7 @@ def read_links(path: str) -> List[Link]:
         reader = csv.reader(f)
         next(reader)
         return [
-            Link(left=left, right=right, same=bool(same))
+            Link(left=left, right=right, same=int(same))
             for left, right, same in reader
             if left and right
         ]
@@ -58,7 +58,8 @@ def format_graph(apps: List[App], links: List[Link]) -> Iterator[str]:
             yield f'        {q.id_} [shape=box,label="{q.text}"];\n'
         yield '    }\n'
     for link in links:
-        yield f'    {link.left} -> {link.right} [dir=none];\n'
+        style = ',style=dotted' if not link.same else ''
+        yield f'    {link.left} -> {link.right} [dir=none{style}];\n'
     yield '}\n'
 
 
