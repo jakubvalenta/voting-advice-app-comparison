@@ -19,7 +19,7 @@ Legend:
 - **solid line** connection between questions = very similar questions
 - **dashed line** connection between questions = related questions
 
-![](./dist/graph.svg)
+![Comparison of the Czech and German voting advice applications for the 2019 EU Parliament election](./dist/graph.svg)
 
 ## Drawing the chart
 
