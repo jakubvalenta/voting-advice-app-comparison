@@ -1,0 +1,29 @@
+digraph G {
+    rankdir=LR;
+    ranksep=3;
+    nodesep=0.05;
+    graph [pencolor=transparent,splines=line,fontname="Roboto"];
+    node [shape=box,fontname="Roboto",width=13];
+    edge [dir=none];
+    {% for app in apps -%}
+    subgraph cluster{{ loop.index0 }} {
+        label="{{ app.lang }}";
+        {% set outer_loop = loop %}
+        {%- for q in app.questions -%}
+        {{ q.id_ }} [
+            label="{{ q.text }}{% if outer_loop.first %}\r{% elif outer_loop.last %}\l{% endif %}"
+            {%- if not q.has_link %},style=filled{% endif %}
+        ];
+        {% endfor %}
+    }
+    {% endfor -%}
+    {% for link in links -%}
+    {% for id_ in link.ids -%}
+    {{ id_ }}{% if loop.first %}:e{% elif loop.last %}:w{% endif %}
+    {%- if not loop.last %} -> {% endif %}
+    {%- endfor -%}
+    {%- if link.dummy %} [style=invis,weight=100]
+    {%- elif not link.same %} [style=dashed]
+    {%- endif %};
+    {% endfor %}
+}
