@@ -2,50 +2,73 @@
 
 import csv
 import sys
-from typing import Dict, Iterator, List, Tuple
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Iterator, List
 
-TQuestions = Dict[str, str]
-TMapping = List[Tuple[str, str]]  # TODO: Loose connection
+
+@dataclass
+class Question:
+    id_: str
+    text: str
 
 
-def read_questions(path: str) -> TQuestions:
+@dataclass
+class App:
+    lang: str
+    questions: List[Question]
+
+
+@dataclass
+class Link:
+    left: str
+    right: str
+    same: bool
+
+
+def read_app(path: str) -> App:
+    lang = Path(path).stem
     with open(path) as f:
         reader = csv.reader(f)
-        return {id_: text_en for id_, text_orig, text_en in reader}
+        questions = [
+            Question(id_=id_, text=text_en)
+            for id_, text_orig, text_en in reader
+        ]
+    return App(lang=lang, questions=questions)
 
 
-def read_mapping(path: str) -> TMapping:
+def read_links(path: str) -> List[Link]:
     with open(path) as f:
         reader = csv.reader(f)
         next(reader)
-        return [(id_a, id_b) for id_a, id_b, same in reader if id_a and id_b]
+        return [
+            Link(left=left, right=right, same=bool(same))
+            for left, right, same in reader
+            if left and right
+        ]
 
 
-def read_all_questions(*paths: str) -> TQuestions:
-    all_questions: TQuestions = {}
-    for path in paths:
-        questions = read_questions(path)
-        all_questions.update(questions)
-    return all_questions
-
-
-def format_graph(questions: TQuestions, mapping: TMapping) -> Iterator[str]:
-    yield "digraph G {\n"
-    yield "    ranksep=.75; rankdir=LR;\n"
-    for id_a, id_b in mapping:
-        yield f"    {id_a} -> {id_b};\n"
-    for id_, text in questions.items():
-        yield f'    {id_} [shape=box,label="{text}"];\n'
-    yield "}\n"
+def format_graph(apps: List[App], links: List[Link]) -> Iterator[str]:
+    yield 'digraph G {\n'
+    yield '    ranksep=.75; rankdir=LR;\n'
+    for i, app in enumerate(apps):
+        yield f'    subgraph cluster{i} {{\n'
+        yield f'        label="{app.lang}";\n'
+        for q in app.questions:
+            yield f'        {q.id_} [shape=box,label="{q.text}"];\n'
+        yield '    }\n'
+    for link in links:
+        yield f'    {link.left} -> {link.right} [dir=none];\n'
+    yield '}\n'
 
 
 def main():
-    _, path_a, path_b, path_mapping = sys.argv
-    all_questions = read_all_questions(path_a, path_b)
-    mapping = read_mapping(path_mapping)
-    graph_lines = format_graph(all_questions, mapping)
+    _, path_a, path_b, path_links = sys.argv
+    apps = [read_app(path) for path in (path_a, path_b)]
+    links = read_links(path_links)
+    graph_lines = format_graph(apps, links)
     sys.stdout.writelines(graph_lines)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
