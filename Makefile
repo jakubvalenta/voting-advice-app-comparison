@@ -1,16 +1,15 @@
-curr_dir = $(shell pwd)
-dist_dir = $(curr_dir)/dist
-data_dir = $(curr_dir)/data
+dist_dir = dist
+data_dir = data
 links_file = $(data_dir)/links.csv
 apps_files = $(wildcard $(data_dir)/apps/*.csv)
 python_pkg = voting_advice_app_comparison
 python_src = $(wildcard $(python_pkg)/*.py)
-dist_pdf = $(dist_dir)/graph.pdf
+dist_svg = $(dist_dir)/graph.svg
 dist_gv = $(dist_dir)/graph.gv
 
 .PHONY: setup setup-dev lint reformat help
 
-graph: $(dist_pdf)  ## Render the graph as PDF
+graph: $(dist_svg)  ## Render the graph as SVG
 
 $(dist_dir):
 	mkdir -p $(dist_dir)
@@ -18,12 +17,12 @@ $(dist_dir):
 $(dist_gv): $(dist_dir) $(python_src) $(links_file) $(apps_files)
 	pipenv run python3 -m "$(python_pkg)" $(links_file) $(apps_files)  > "$@"
 
-$(dist_pdf): $(dist_gv)
-	dot -Tpdf "$^" -o "$@"
+$(dist_svg): $(dist_gv)
+	dot -Tsvg "$^" -o "$@"
 
-clean:  ## Remove rendered graph PDF and temporary Graphviz file
+clean:  ## Remove rendered graph SVG and temporary Graphviz file
 	-rm $(dist_gv)
-	-rm $(dist_pdf)
+	-rm $(dist_svg)
 
 setup:  ## Create Pipenv virtual environment and install dependencies.
 	pipenv --three --site-packages
