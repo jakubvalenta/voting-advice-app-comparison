@@ -30,7 +30,7 @@ class Link:
     dummy: bool = False
 
 
-def read_app(path: str, q_ids_with_links: List[str]) -> App:
+def read_app(path: str, q_ids_with_links: Set[str]) -> App:
     lang = Path(path).stem
     with open(path) as f:
         reader = csv.reader(f)
@@ -46,7 +46,7 @@ def read_links(path: str) -> List[Link]:
         reader = csv.reader(f)
         next(reader)
         return [
-            Link(ids=row[1:], same=int(row[0]))
+            Link(ids=row[1:], same=bool(int(row[0])))
             for row in reader
             if all(row[1:])
         ]
@@ -54,7 +54,7 @@ def read_links(path: str) -> List[Link]:
 
 def add_first_dummy_link(apps: List[App], links: List[Link]):
     first_questions = next(zip(*(app.questions for app in apps)))
-    first_ids = (q.id_ for q in first_questions)
+    first_ids = [q.id_ for q in first_questions]
     first_link = Link(ids=first_ids, dummy=True)
     links.insert(0, first_link)
 
