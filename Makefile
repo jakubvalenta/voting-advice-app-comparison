@@ -1,7 +1,7 @@
 dist_dir = dist
 data_dir = data
 links_file = $(data_dir)/links.csv
-apps_files = $(wildcard $(data_dir)/apps/*.csv)
+apps_files = $(sort $(wildcard $(data_dir)/apps/*.csv))
 python_pkg = voting_advice_app_comparison
 python_src = $(wildcard $(python_pkg)/*.py)
 dist_svg = $(dist_dir)/graph.svg
