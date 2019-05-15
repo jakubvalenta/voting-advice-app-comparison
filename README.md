@@ -5,7 +5,7 @@ Parliament election** of:
 
 &#x1f1e8;&#x1f1ff; Czech Republic ([Volební kalkulačka EP
 2019](https://volebnikalkulacka.cz/cs/evropsky-parlament-2019/) by
-[KohoVolit.eu](http://kohovolit.eu/)\
+[KohoVolit.eu](http://kohovolit.eu/))\
 &#x1f1e9;&#x1f1ea; Germany ([Wahl-O-Mat zur Europawahl
 2019](https://www.wahl-o-mat.de/europawahl2019/) by [Bundeszentrale für
 politische Bildung](https://www.bpb.de/))
@@ -110,6 +110,6 @@ make help
 The code is licensed under the [Apache License, Version
 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
-The translations of the questions of the voting advice apps and the resulting
-chart are licensed under the [Creative Commons Attribution-ShareAlike 4.0
+The translations of the questions of the voting advice apps and the chart image
+are licensed under the [Creative Commons Attribution-ShareAlike 4.0
 International License](http://creativecommons.org/licenses/by-sa/4.0/).
