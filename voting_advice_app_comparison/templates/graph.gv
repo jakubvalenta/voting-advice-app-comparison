@@ -12,7 +12,7 @@ digraph G {
         {%- for q in app.questions -%}
         {{ q.id_ }} [
             label="{{ q.text }}{% if outer_loop.first %}\r{% elif outer_loop.last %}\l{% endif %}"
-            {%- if not q.has_link %},style=filled{% endif %}
+            {%- if q.invisible %},style=invis{% elif not q.has_link %},style=filled{% endif %}
         ];
         {% endfor %}
         label{{ loop.index0 }} -> {% for q in app.questions %}{{ q.id_ }}{% if not loop.last %} -> {% endif %}{% endfor %} [style=invis,weight=100];

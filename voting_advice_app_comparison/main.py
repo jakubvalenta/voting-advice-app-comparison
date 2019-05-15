@@ -13,8 +13,9 @@ from jinja2 import Environment, PackageLoader
 @dataclass
 class Question:
     id_: str
-    text: str
-    has_link: bool
+    text: str = ''
+    has_link: bool = False
+    invisible: bool = False
 
 
 @dataclass
@@ -27,7 +28,6 @@ class App:
 class Link:
     ids: List[str]
     same: bool = False
-    dummy: bool = False
 
 
 def read_app(path: str, q_ids_with_links: Set[str]) -> App:
@@ -56,6 +56,17 @@ def find_question_ids_with_link(links: List[Link]) -> Set[str]:
     return set(itertools.chain.from_iterable(link.ids for link in links))
 
 
+def add_invisible_questions(apps: List[App]):
+    max_questions = max(len(app.questions) for app in apps)
+    for app in apps:
+        n_invisible_questions = max_questions - len(app.questions)
+        last_id = app.questions[-1].id_
+        for i in range(n_invisible_questions):
+            app.questions.append(
+                Question(id_=f'{last_id}_invis_{i}', invisible=True)
+            )
+
+
 def render_template(package: List[str], f_out: IO, **context):
     environment = Environment(loader=PackageLoader(*package[:-1]))
     template = environment.get_template(package[-1])
@@ -67,6 +78,7 @@ def create_and_write_graph(path_links: str, paths_apps: List[str], f_out: IO):
     links = read_links(path_links)
     q_ids_with_links = find_question_ids_with_link(links)
     apps = [read_app(path, q_ids_with_links) for path in paths_apps]
+    add_invisible_questions(apps)
     render_template(
         ['voting_advice_app_comparison', 'templates', 'graph.gv'],
         f_out,
