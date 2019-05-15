@@ -52,13 +52,6 @@ def read_links(path: str) -> List[Link]:
         ]
 
 
-def add_first_dummy_link(apps: List[App], links: List[Link]):
-    first_questions = next(zip(*(app.questions for app in apps)))
-    first_ids = [q.id_ for q in first_questions]
-    first_link = Link(ids=first_ids, dummy=True)
-    links.insert(0, first_link)
-
-
 def find_question_ids_with_link(links: List[Link]) -> Set[str]:
     return set(itertools.chain.from_iterable(link.ids for link in links))
 
@@ -74,7 +67,6 @@ def create_and_write_graph(path_links: str, paths_apps: List[str], f_out: IO):
     links = read_links(path_links)
     q_ids_with_links = find_question_ids_with_link(links)
     apps = [read_app(path, q_ids_with_links) for path in paths_apps]
-    add_first_dummy_link(apps, links)
     render_template(
         ['voting_advice_app_comparison', 'templates', 'graph.gv'],
         f_out,

@@ -3,7 +3,8 @@ data_dir = data
 links_file = $(data_dir)/links.csv
 apps_files = $(sort $(wildcard $(data_dir)/apps/*.csv))
 python_pkg = voting_advice_app_comparison
-python_src = $(wildcard $(python_pkg)/*.py)
+python_src = $(wildcard $(python_pkg)/*)
+template_src = $(wildcard $(python_pkg)/templates/*)
 dist_svg = $(dist_dir)/graph.svg
 dist_gv = $(dist_dir)/graph.gv
 
@@ -14,7 +15,7 @@ graph: $(dist_svg)  ## Render the graph as SVG
 $(dist_dir):
 	mkdir -p $(dist_dir)
 
-$(dist_gv): $(dist_dir) $(python_src) $(links_file) $(apps_files)
+$(dist_gv): $(python_src) $(template_src) $(links_file) $(apps_files) | $(dist_dir)
 	pipenv run python3 -m "$(python_pkg)" $(links_file) $(apps_files)  > "$@"
 
 $(dist_svg): $(dist_gv)

@@ -1,13 +1,13 @@
 digraph G {
-    rankdir=LR;
-    ranksep=3;
-    nodesep=0.05;
+    ranksep=0.05;
+    nodesep=1;
+
     graph [pencolor=transparent,splines=line,fontname="Roboto"];
     node [shape=box,fontname="Roboto",width=13];
     edge [dir=none];
     {% for app in apps -%}
     subgraph cluster{{ loop.index0 }} {
-        label="{{ app.lang }}";
+        label{{ loop.index0 }} [label="{{ app.lang }}",shape=plaintext]
         {% set outer_loop = loop %}
         {%- for q in app.questions -%}
         {{ q.id_ }} [
@@ -15,15 +15,17 @@ digraph G {
             {%- if not q.has_link %},style=filled{% endif %}
         ];
         {% endfor %}
+        label{{ loop.index0 }} -> {% for q in app.questions %}{{ q.id_ }}{% if not loop.last %} -> {% endif %}{% endfor %} [style=invis,weight=100];
     }
     {% endfor -%}
+    {
+        rank=same;{% for app in apps %}label{{ loop.index0 }};{% endfor %}
+    }
     {% for link in links -%}
     {% for id_ in link.ids -%}
     {{ id_ }}{% if loop.first %}:e{% elif loop.last %}:w{% endif %}
     {%- if not loop.last %} -> {% endif %}
     {%- endfor -%}
-    {%- if link.dummy %} [style=invis,weight=100]
-    {%- elif not link.same %} [style=dashed]
-    {%- endif %};
+    {%- if not link.same %} [style=dashed]{% endif %};
     {% endfor %}
 }
