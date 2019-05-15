@@ -31,7 +31,7 @@ class Link:
 
 
 def read_app(path: str, q_ids_with_links: Set[str]) -> App:
-    lang = Path(path).stem
+    lang = Path(path).stem.replace('_', ' ')
     with open(path) as f:
         reader = csv.reader(f)
         questions = [
