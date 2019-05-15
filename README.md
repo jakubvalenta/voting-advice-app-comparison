@@ -27,7 +27,7 @@ chosen for the comparison because it does not publish any information on the
 method used to choose the questions.
 
 ![Comparison of the Czech and German voting advice applications for the 2019
-European Parliament election](./dist/graph.svg)
+European Parliament election](./dist/graph.png)
 
 Legend:
 
@@ -47,7 +47,7 @@ This chart image is licensed under the [Creative Commons Attribution-ShareAlike
 #### Mac
 
 ``` shell
-$ brew install python graphviz
+$ brew install python graphviz librsvg optipng
 $ pip install pipenv
 $ make setup
 ```
@@ -55,7 +55,7 @@ $ make setup
 #### Arch Linux
 
 ``` shell
-# pacman -S pipenv graphviz
+# pacman -S pipenv graphviz librsvg optipng
 $ make setup
 ```
 
@@ -66,6 +66,8 @@ Install these dependencies manually:
 - Python 3.7
 - pipenv
 - graphviz
+- librsvg
+- optipng
 
 Then run:
 
@@ -75,13 +77,13 @@ $ make setup
 
 ### Usage
 
-#### Rendering the chart as SVG
+#### Rendering the chart as SVG and PNG
 
 ```
 $ make
 ```
 
-The chart SVG will be created at `dist/graph.svg`.
+The chart SVG and PNG images will be created at `dist/`.
 
 ### Development
 

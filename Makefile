@@ -6,11 +6,12 @@ python_pkg = voting_advice_app_comparison
 python_src = $(wildcard $(python_pkg)/*)
 template_src = $(wildcard $(python_pkg)/templates/*)
 dist_svg = $(dist_dir)/graph.svg
+dist_png = $(dist_dir)/graph.png
 dist_gv = $(dist_dir)/graph.gv
 
 .PHONY: setup setup-dev lint reformat help
 
-graph: $(dist_svg)  ## Render the graph as SVG
+graph: $(dist_png)  ## Render the graph as SVG and PNG
 
 $(dist_dir):
 	mkdir -p $(dist_dir)
@@ -21,9 +22,14 @@ $(dist_gv): $(python_src) $(template_src) $(links_file) $(apps_files) | $(dist_d
 $(dist_svg): $(dist_gv)
 	dot -Tsvg "$^" -o "$@"
 
+$(dist_png): $(dist_svg)
+	rsvg-convert -d 72 "$^" | convert -trim +repage - "$@"
+	optipng -preserve "$@"
+
 clean:  ## Remove rendered graph SVG and temporary Graphviz file
 	-rm $(dist_gv)
 	-rm $(dist_svg)
+	-rm $(dist_png)
 
 setup:  ## Create Pipenv virtual environment and install dependencies.
 	pipenv --three --site-packages
