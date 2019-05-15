@@ -3,23 +3,38 @@
 A chart comparing the voting advice applications for the **2019 European
 Parliament election** of:
 
-&#x1f1e8;&#x1f1ff; Czech Republic ([Volební kalkulačka, Volby do Evropského
-parlamentu 2019](https://eu2019.programydovoleb.cz/volebni-kalkulacka/) by
-[Programy do voleb](https://www.programydovoleb.cz/))\
+&#x1f1e8;&#x1f1ff; Czech Republic ([Volební kalkulačka EP
+2019](https://volebnikalkulacka.cz/cs/evropsky-parlament-2019/) by
+[KohoVolit.eu](http://kohovolit.eu/)\
 &#x1f1e9;&#x1f1ea; Germany ([Wahl-O-Mat zur Europawahl
 2019](https://www.wahl-o-mat.de/europawahl2019/) by [Bundeszentrale für
 politische Bildung](https://www.bpb.de/))
 
-The **English translations and similarity classifications** (connections between the
-questions) are **NOT OFFICIAL**.
+The **English translations and similarity classifications** (connections between
+the questions) are original work. This information was **not provided by the
+authors of the voting advice apps** and might therefore be inaccurate.
 
-Legend:
+Please refer to the websites of the voting advice apps to learn about the
+**methodology** how the questions were chosen:
 
-- **gray background** = unique question
-- **solid line** connection between questions = very similar questions
-- **dashed line** connection between questions = related questions
+- [VolebníKalkulačka.cz - Info](https://volebnikalkulacka.cz/info/)
+- [Wahl-O-Mat zur Europawahl 2019 - FAQ](https://www.wahl-o-mat.de/europawahl2019/popup_faq.php)
 
-![Comparison of the Czech and German voting advice applications for the 2019 EU Parliament election](./dist/graph.svg)
+## Chart
+
+![Comparison of the Czech and German voting advice applications for the 2019
+European Parliament election](./dist/graph.svg)
+
+### Legend
+
+- **gray background**: unique question
+- **solid line** connection: very similar questions
+- **dashed line** connection: related questions
+
+### License
+
+This chart image is licensed under the [Creative Commons Attribution-ShareAlike
+4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
 
 ## Drawing the chart
 
@@ -86,5 +101,11 @@ make help
 
 ### Contributing
 
-**Feel free to remix this project** under the terms of the [Apache License,
-Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+**Feel free to remix this project.**
+
+The code is licensed under the [Apache License, Version
+2.0](http://www.apache.org/licenses/LICENSE-2.0).
+
+The translations of the questions of the voting advice apps and the resulting
+chart are licensed under the [Creative Commons Attribution-ShareAlike 4.0
+International License](http://creativecommons.org/licenses/by-sa/4.0/).
