@@ -26,21 +26,21 @@
 <g id="node2" class="node">
 <title>cz_koho_1</title>
 <polygon fill="none" stroke="#000000" points="952,-1768 16,-1768 16,-1732 952,-1732 952,-1768"/>
-<text text-anchor="end" x="944" y="-1746.3" font-family="Roboto" font-size="14.00" fill="#000000">Should the Czech Republic adopt Euro as soon as possible?</text>
+<text text-anchor="end" x="944" y="-1746.3" font-family="Roboto" font-size="14.00" fill="#000000">Should the Czech Republic adopt the euro as soon as possible?</text>
 </g>
 <!-- label0&#45;&gt;cz_koho_1 -->
 <!-- cz_koho_2 -->
 <g id="node3" class="node">
 <title>cz_koho_2</title>
 <polygon fill="none" stroke="#000000" points="952,-1724 16,-1724 16,-1688 952,-1688 952,-1724"/>
-<text text-anchor="end" x="944" y="-1702.3" font-family="Roboto" font-size="14.00" fill="#000000">Should the EU member states be seriously afflicted [not mentioned with what], if they break the EU rules on budget deficit?</text>
+<text text-anchor="end" x="944" y="-1702.3" font-family="Roboto" font-size="14.00" fill="#000000">Should the EU member states be seriously afflicted if they break the EU rules on budget deficit?</text>
 </g>
 <!-- cz_koho_1&#45;&gt;cz_koho_2 -->
 <!-- de_5 -->
 <g id="node47" class="node">
 <title>de_5</title>
 <polygon fill="none" stroke="#000000" points="2106,-1592 1170,-1592 1170,-1556 2106,-1556 2106,-1592"/>
-<text text-anchor="start" x="1178" y="-1570.3" font-family="Roboto" font-size="14.00" fill="#000000">Should Germany revert from Euro to a national currency?</text>
+<text text-anchor="start" x="1178" y="-1570.3" font-family="Roboto" font-size="14.00" fill="#000000">Should Germany revert from the euro to a national currency?</text>
 </g>
 <!-- cz_koho_1&#45;&gt;de_5 -->
 <g id="edge81" class="edge">
@@ -69,7 +69,7 @@
 <g id="node5" class="node">
 <title>cz_koho_4</title>
 <polygon fill="none" stroke="#000000" points="952,-1636 16,-1636 16,-1600 952,-1600 952,-1636"/>
-<text text-anchor="end" x="944" y="-1614.3" font-family="Roboto" font-size="14.00" fill="#000000">Should the EU advance substantial reduction of CO2 emissions?</text>
+<text text-anchor="end" x="944" y="-1614.3" font-family="Roboto" font-size="14.00" fill="#000000">Should the EU advance substantial reduction of carbon emissions?</text>
 </g>
 <!-- cz_koho_3&#45;&gt;cz_koho_4 -->
 <!-- de_8 -->
@@ -353,7 +353,7 @@
 <g id="node59" class="node">
 <title>de_17</title>
 <polygon fill="none" stroke="#000000" points="2106,-1064 1170,-1064 1170,-1028 2106,-1028 2106,-1064"/>
-<text text-anchor="start" x="1178" y="-1042.3" font-family="Roboto" font-size="14.00" fill="#000000">Should atomic power plants continue to be operated in other EU member states?</text>
+<text text-anchor="start" x="1178" y="-1042.3" font-family="Roboto" font-size="14.00" fill="#000000">Should nuclear power plants continue to be operated in other EU member states?</text>
 </g>
 <!-- cz_koho_19&#45;&gt;de_17 -->
 <g id="edge98" class="edge">
@@ -406,10 +406,16 @@
 <text text-anchor="end" x="944" y="-690.3" font-family="Roboto" font-size="14.00" fill="#000000">Should the asylum requirements be the same in all EU member states?</text>
 </g>
 <!-- cz_koho_24&#45;&gt;cz_koho_25 -->
-<!-- cz_koho_24&#45;&gt;de_13 -->
+<!-- de_23 -->
+<g id="node65" class="node">
+<title>de_23</title>
+<polygon fill="none" stroke="#000000" points="2106,-800 1170,-800 1170,-764 2106,-764 2106,-800"/>
+<text text-anchor="start" x="1178" y="-778.3" font-family="Roboto" font-size="14.00" fill="#000000">Should there be a minimum rate for the taxation of companies in the EU?</text>
+</g>
+<!-- cz_koho_24&#45;&gt;de_23 -->
 <g id="edge100" class="edge">
-<title>cz_koho_24:e&#45;&gt;de_13:w</title>
-<path fill="none" stroke="#000000" d="M952,-738C952,-738 1170,-1222 1170,-1222"/>
+<title>cz_koho_24:e&#45;&gt;de_23:w</title>
+<path fill="none" stroke="#000000" d="M952,-738C952,-738 1170,-782 1170,-782"/>
 </g>
 <!-- cz_koho_26 -->
 <g id="node27" class="node">
@@ -496,7 +502,7 @@
 <g id="node37" class="node">
 <title>cz_koho_36</title>
 <polygon fill="#d3d3d3" stroke="#000000" points="952,-228 16,-228 16,-192 952,-192 952,-228"/>
-<text text-anchor="end" x="944" y="-206.3" font-family="Roboto" font-size="14.00" fill="#000000">Should international companies pay their income tax in the country, where the income was actually created?</text>
+<text text-anchor="end" x="944" y="-206.3" font-family="Roboto" font-size="14.00" fill="#000000">Should international companies pay their income tax in the country where the income was actually created?</text>
 </g>
 <!-- cz_koho_35&#45;&gt;cz_koho_36 -->
 <!-- cz_koho_37 -->
@@ -610,15 +616,9 @@
 <g id="node64" class="node">
 <title>de_22</title>
 <polygon fill="#d3d3d3" stroke="#000000" points="2106,-844 1170,-844 1170,-808 2106,-808 2106,-844"/>
-<text text-anchor="start" x="1178" y="-822.3" font-family="Roboto" font-size="14.00" fill="#000000">Should the competences of the european police agency Europol be extended?</text>
+<text text-anchor="start" x="1178" y="-822.3" font-family="Roboto" font-size="14.00" fill="#000000">Should the competences of Europol, the European police agency, be extended?</text>
 </g>
 <!-- de_21&#45;&gt;de_22 -->
-<!-- de_23 -->
-<g id="node65" class="node">
-<title>de_23</title>
-<polygon fill="#d3d3d3" stroke="#000000" points="2106,-800 1170,-800 1170,-764 2106,-764 2106,-800"/>
-<text text-anchor="start" x="1178" y="-778.3" font-family="Roboto" font-size="14.00" fill="#000000">Should there be a minimum rate for corporate tax in the EU?</text>
-</g>
 <!-- de_22&#45;&gt;de_23 -->
 <!-- de_23&#45;&gt;de_24 -->
 <!-- de_24&#45;&gt;de_25 -->
