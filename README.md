@@ -1,6 +1,6 @@
 # Voting advice application comparison
 
-A chart comparing the voting advice applications for the **2019 European
+This is a chart comparing the voting advice applications for the **2019 European
 Parliament election** of:
 
 &#x1f1e8;&#x1f1ff; Czech Republic ([Volební kalkulačka EP
@@ -15,23 +15,27 @@ the questions) are original work. This information was **not provided by the
 authors of the voting advice apps** and might therefore be inaccurate.
 
 Please refer to the websites of the voting advice apps to learn about the
-**methodology** how the questions were chosen:
+**method** used to choose the questions:
 
 - [VolebníKalkulačka.cz - Info](https://volebnikalkulacka.cz/info/)
 - [Wahl-O-Mat zur Europawahl 2019 - FAQ](https://www.wahl-o-mat.de/europawahl2019/popup_faq.php)
 
-## Chart
+There is a second voting advice app in the Czech Republic - [Volební kalkulačka
+by Programy do
+Voleb](https://eu2019.programydovoleb.cz/volebni-kalkulacka). This one was not
+chosen for the comparison because it does not publish any information on the
+method used to choose the questions.
 
 ![Comparison of the Czech and German voting advice applications for the 2019
 European Parliament election](./dist/graph.svg)
 
-### Legend
+Legend:
 
 - **gray background**: unique question
 - **solid line** connection: very similar questions
 - **dashed line** connection: related questions
 
-### License
+License:
 
 This chart image is licensed under the [Creative Commons Attribution-ShareAlike
 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
